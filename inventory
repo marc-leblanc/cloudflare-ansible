@@ -1,0 +1,12 @@
+- hosts: localhost
+  vars:
+    account_api_token:                  # CloudFlare Global API Token. https://support.cloudflare.com/hc/en-us/articles/200167836-Where-do-I-find-my-Cloudflare-API-key- 
+    account_email:                      # CloudFlare Account email address 
+    weight:                             # Required for type=SRV. Default 1
+    record:                             # Record to update ie www
+    service:                            # Required for type=SRV
+    state:                              # present/absent
+    ttl:                                # Default Automatic
+    type:                               # Record Type: A, AAAA, CNAME, TXT, SRV, MX, NS, DS, SPF, SSHFP, TLSA
+    value:                              # Value for the record
+    zone:                               # Domain name. Must exist in CloudFlare account ie mydomain.com
