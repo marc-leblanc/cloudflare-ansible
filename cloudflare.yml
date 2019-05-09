@@ -1,6 +1,7 @@
 ---
 - name: Create/Update CF Records
-  hosts: localhost
+  hosts: domains
+  connection: local
   tasks:
     - name: Make the change to Cloudflare
       cloudflare_dns:
@@ -8,5 +9,6 @@
           record: "{{ record }}"
           value: "{{ value }}"
           state: "{{ state }}"
+          type: "{{ type }}"
           account_email: "{{ account_email }}"
           account_api_token: "{{ account_api_token }}"
