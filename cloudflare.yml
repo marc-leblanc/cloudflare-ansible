@@ -3,6 +3,13 @@
   hosts: domains
   connection: local
   tasks:
+    - name: Remove current record
+      cloudflare_dns:
+          zone: "{{ inventory_hostname }}"
+          record: "{{ record }}"
+          state: absent
+          account_email: "{{ account_email }}"
+          account_api_token: "{{ account_api_token }}"
     - name: Make the change to Cloudflare
       cloudflare_dns:
           zone: "{{ inventory_hostname }}"
